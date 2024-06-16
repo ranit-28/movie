@@ -1,0 +1,14 @@
+{% extends "movies_booking/base_generic.html" %}
+
+{% block content %}
+  <h1>Available Movies</h1>
+  <ul>
+    {% for movie in movies %}
+      <li>
+        <a href="{% url 'book' movie.id %}">{{ movie.title }}</a>
+        <p>{{ movie.genre }}</p>
+        <p>Showtimes: {{ movie.showtimes }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

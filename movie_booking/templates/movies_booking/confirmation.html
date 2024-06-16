@@ -1,0 +1,10 @@
+{% extends "movies_booking/base_generic.html" %}
+
+{% block content %}
+  <h2>Booking Confirmation</h2>
+  <p>Movie: {{ booking.screen.movie.title }}</p>
+  <p>Screen: {{ booking.screen.screen_number }}</p>
+  <p>Seats: {{ booking.seats }}</p>
+  <p>Booking Time: {{ booking.booking_time }}</p>
+  <p>Status: {{ booking.confirmed|yesno:"Confirmed,Pending" }}</p>
+{% endblock %}

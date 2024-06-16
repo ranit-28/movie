@@ -1,0 +1,17 @@
+{% extends "movies_booking/base_generic.html" %}
+
+{% block content %}
+  <h2>Book Tickets for {{ movie.title }}</h2>
+  <form method="post">
+    {% csrf_token %}
+    <label for="screen_id">Select Screen:</label>
+    <select name="screen_id" id="screen_id">
+      {% for screen in screens %}
+        <option value="{{ screen.id }}">Screen {{ screen.screen_number }} - {{ screen.movie.title }}</option>
+      {% endfor %}
+    </select>
+    <label for="seats">Seats (comma separated):</label>
+    <input type="text" name="seats" id="seats" required>
+    <button type="submit">Book</button>
+  </form>
+{% endblock %}
